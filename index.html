@@ -223,6 +223,8 @@ console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
       if (link) link.setAttribute('href', limitedUrls[i]);
     });
 
+    console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${url}`);
+
 // Ensure instgrm.Embeds.process() is called after a short delay
 setTimeout(() => {
   if (window.instgrm && window.instgrm.Embeds) {
@@ -230,7 +232,7 @@ setTimeout(() => {
   } else {
     console.error("Instagram Embed script not loaded or not ready.");
   }
-}, 500); // Delay of 500ms (adjust if needed)
+}, 500); // Delay of 500ms idk sometimes i just add delay and it fixes it lol
   } catch (err) {
     console.error('Instagram feed: could not load URLs from Google Sheet.', err);
   }
