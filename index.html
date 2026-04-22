@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -115,7 +114,7 @@
 <!-- Hero Section -->
 <section class="relative w-full min-h-[716px] flex items-center justify-center overflow-hidden px-6 py-20">
 <div class="absolute inset-0 z-0">
-<img alt="Hero Background" class="w-full h-full object-cover opacity-30" data-alt="background asset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiiqHfq5A7qNowgRRxRjjx0WKSiP55BxqaOZBJoJffOFv8yQHGjsZdyjAVuupfZZ5TAh8SYMukT1OYTsq_yD7qsrvVNo85nnSgVY1_Ax6E4WpgO-wrj6nslTp7-L4x6iVWn91HfyPgNfsq5mWmNSHMDxKMK9mvfSzRAorYKXTVnPTl5URGKgRZL8WXfl7fPCfiXgIfxsCX_AP6LQFGlqEsFLVY1NDP3cpToePRU38r3_MAl21V50940V9cpGBlRyQI2gkNsRbm_Ew"/>
+<img alt="Hero Background" class="w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiiqHfq5A7qNowgRRxRjjx0WKSiP55BxqaOZBJoJffOFv8yQHGjsZdyjAVuupfZZ5TAh8SYMukT1OYTsq_yD7qsrvVNo85nnSgVY1_Ax6E4WpgO-wrj6nslTp7-L4x6iVWn91HfyPgNfsq5mWmNSHMDxKMK9mvfSzRAorYKXTVnPTl5URGKgRZL8WXfl7fPCfiXgIfxsCX_AP6LQFGlqEsFLVY1NDP3cpToePRU38r3_MAl21V50940V9cpGBlRyQI2gkNsRbm_Ew"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto text-center flex flex-col items-center gap-8">
@@ -126,84 +125,74 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                 </p>
 <div class="flex gap-6 mt-8">
-<a class="bg-gradient-to-r from-secondary to-[#8a6400] text-white px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:shadow-[0_0_20px_rgba(240,191,92,0.4)] transition-all" href="#join">
-                        CONNECT
-                    </a>
-<a class="border border-primary text-primary px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:bg-primary/10 transition-all shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.2)]" href="#about">
-                        DISCOVER MORE
-                    </a>
+<a class="bg-gradient-to-r from-secondary to-[#8a6400] text-white px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:shadow-[0_0_20px_rgba(240,191,92,0.4)] transition-all" href="#join">CONNECT</a>
+<a class="border border-primary text-primary px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:bg-primary/10 transition-all shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.2)]" href="#about">DISCOVER MORE</a>
 </div>
 </div>
 </section>
+
 <!-- Recent Events Section (Instagram Embeds) -->
 <section class="py-20 px-6 max-w-container-max mx-auto" id="feed">
 <div class="flex justify-between items-end mb-12">
 <div>
-<h2 class="font-headline-lg text-headline-lg text-inverse-surface mb-2">Recent Highlights</h2>
-<div class="h-1 w-16 bg-secondary"></div>
+  <h2 class="font-headline-lg text-headline-lg text-inverse-surface mb-2">Recent Highlights</h2>
+  <div class="h-1 w-16 bg-secondary"></div>
 </div>
 <a class="hidden md:flex items-center gap-2 text-primary hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="https://www.instagram.com/lolmeetupkorea/" target="_blank">
-                    VIEW ALL ON INSTAGRAM <span class="material-symbols-outlined text-sm">open_in_new</span>
+  VIEW ALL ON INSTAGRAM <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
+
+<!-- Grid: only the 3 blockquotes, nothing else inside -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter place-items-center">
-<!-- Embed 1 -->
-<blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-<div style="padding:16px;">
-<a class="ig-link" href="" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-            View this post on Instagram
-        </a>
+  <!-- Embed 1 -->
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  </blockquote>
+  <!-- Embed 2 -->
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  </blockquote>
+  <!-- Embed 3 -->
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  </blockquote>
 </div>
-</blockquote>
-<!-- Embed 2 -->
-<blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-<div style="padding:16px;">
-<a class="ig-link" href="" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-            View this post on Instagram
-        </a>
-</div>
-</blockquote>
-<!-- Embed 3 -->
-<blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-<div style="padding:16px;">
-<a class="ig-link" href="" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-            View this post on Instagram
-        </a>
-</div>
-</blockquote>
- 
-<script async="" src="//www.instagram.com/embed.js"></script>
- 
+
+<!-- Mobile "view all" — outside the grid -->
 <div class="mt-8 text-center md:hidden">
-  <a class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-2 rounded-DEFAULT font-label-caps text-label-caps hover:bg-primary/10 transition-colors" href="https://instagram.com" target="_blank">
+  <a class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-2 rounded-DEFAULT font-label-caps text-label-caps hover:bg-primary/10 transition-colors" href="https://www.instagram.com/lolmeetupkorea/" target="_blank">
     VIEW ALL ON INSTAGRAM <span class="material-symbols-outlined text-sm">open_in_new</span>
   </a>
 </div>
- 
+
+<!-- Instagram embed.js -->
+<script async src="//www.instagram.com/embed.js"></script>
+
 <script>
-  // ─── PASTE YOUR GOOGLE SHEET CSV URL HERE ───────────────────────────────────
-  const IG_SHEET_CSV_URL = 'YOUR_GOOGLE_SHEET_CSV_URL_HERE';
-  // ────────────────────────────────────────────────────────────────────────────
- 
+  // ─── YOUR GOOGLE SHEET CSV URL ───────────────────────────────────────────────
+  const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?gid=0&single=true&output=csv';
+  // ─────────────────────────────────────────────────────────────────────────────
+
   (async function () {
-    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?gid=0&single=true&output=csv') {
-      console.warn('Instagram feed: no Google Sheet URL set. See SETUP.md.');
+    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+      console.warn('Instagram feed: no Google Sheet URL set.');
       return;
     }
- 
+
     try {
       const res = await fetch(IG_SHEET_CSV_URL);
       if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
- 
+
       const csv = await res.text();
- 
-      // Parse column A, skip any header row
+
+      // Parse column A, skip header row if present
       const urls = csv
         .split('\n')
         .map(row => row.split(',')[0].replace(/^"|"$/g, '').trim())
         .filter(val => val.startsWith('http') && val.includes('instagram.com'))
         .slice(0, 3);
- 
+
       // Inject URLs into the three blockquotes
       const blockquotes = document.querySelectorAll('blockquote.instagram-media');
       blockquotes.forEach((bq, i) => {
@@ -212,55 +201,48 @@
         const link = bq.querySelector('a.ig-link');
         if (link) link.setAttribute('href', urls[i]);
       });
- 
-      // Re-run Instagram's embed processor with the new URLs
+
+      // Re-run Instagram's embed processor with the updated URLs
       if (window.instgrm && window.instgrm.Embeds) {
         window.instgrm.Embeds.process();
       }
- 
+
     } catch (err) {
       console.error('Instagram feed: could not load URLs from Google Sheet.', err);
     }
   })();
 </script>
-</div>
+
 </section>
+
 <!-- About Us Section -->
 <section class="py-20 bg-surface-container-low relative overflow-hidden" id="about">
-<!-- Decorative Hextech Accents -->
 <div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-primary/20 opacity-50"></div>
 <div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-secondary/20 opacity-50"></div>
 <div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 <div class="space-y-12 relative z-10">
 <div>
 <h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-4">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">track_changes</span>
-                            Our Focus
-                        </h2>
-<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg shadow-[0_10px_30px_rgba(10,200,185,0.05)] shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)]">
-<p class="font-body-md text-body-md text-on-surface-variant">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.
-                            </p>
+<span class="material-symbols-outlined text-secondary" data-weight="fill">track_changes</span>Our Focus</h2>
+<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
 </div>
 </div>
 <div>
 <h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-4">
-<span class="material-symbols-outlined text-secondary" data-weight="fill">history_edu</span>
-                            Our Origins
-                        </h2>
-<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg shadow-[0_10px_30px_rgba(10,200,185,0.05)] shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)]">
-<p class="font-body-md text-body-md text-on-surface-variant">
-                                Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
-                            </p>
+<span class="material-symbols-outlined text-secondary" data-weight="fill">history_edu</span>Our Origins</h2>
+<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
 </div>
 </div>
 </div>
 <div class="relative h-[600px] hidden lg:block">
 <div class="absolute inset-0 bg-tertiary-fixed-dim/10 rounded-xl blur-3xl"></div>
-<img alt="About Us" class="absolute inset-0 w-full h-full object-cover rounded-xl border border-primary/20 shadow-[0_0_40px_rgba(10,200,185,0.15)] mix-blend-luminosity" data-alt="lmk logo 2" src="lmk2.png"/>
+<img alt="About Us" class="absolute inset-0 w-full h-full object-cover rounded-xl border border-primary/20 shadow-[0_0_40px_rgba(10,200,185,0.15)] mix-blend-luminosity" src="lmk2.png"/>
 </div>
 </div>
 </section>
+
 <!-- Join Section -->
 <section class="py-32 px-6 relative text-center" id="join">
 <div class="absolute inset-0 z-0">
@@ -268,17 +250,14 @@
 </div>
 <div class="relative z-10 max-w-3xl mx-auto space-y-8">
 <h2 class="font-display-xl text-display-xl text-inverse-surface">Ready to Connect?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id tellus eget velit suscipit sollicitudin.
-                </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id tellus eget velit suscipit sollicitudin.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-6">
 <a class="group relative flex items-center justify-center gap-3 bg-surface-container border border-primary/30 px-8 py-4 rounded-lg hover:border-primary hover:bg-primary/5 transition-all overflow-hidden" href="https://discord.gg/sNQpYQg8XQ">
 <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 <span class="material-symbols-outlined text-primary">forum</span>
 <span class="font-label-caps text-label-caps text-inverse-surface group-hover:text-primary transition-colors">JOIN DISCORD</span>
 </a>
-<a class="group relative flex items-center justify-center gap-3 bg-[#ffe812]/10 border border-[#ffe812]/30 px-8 py-4 rounded-lg hover:border-[#ffe812] hover:bg-[#ffe812]/20 transition-all overflow-hidden" href="open.kakao.com/o/glPbdi3e
-">
+<a class="group relative flex items-center justify-center gap-3 bg-[#ffe812]/10 border border-[#ffe812]/30 px-8 py-4 rounded-lg hover:border-[#ffe812] hover:bg-[#ffe812]/20 transition-all overflow-hidden" href="open.kakao.com/o/glPbdi3e">
 <div class="absolute inset-0 bg-gradient-to-r from-[#ffe812]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 <span class="material-symbols-outlined text-[#ffe812]">chat_bubble</span>
 <span class="font-label-caps text-label-caps text-inverse-surface group-hover:text-[#ffe812] transition-colors">JOIN KAKAOCHAT</span>
@@ -287,17 +266,16 @@
 </div>
 </section>
 </main>
+
 <!-- Footer -->
 <footer class="w-full flex flex-col items-center gap-8 px-8 py-12 max-w-7xl mx-auto bg-slate-950 font-['Space_Grotesk'] text-sm uppercase tracking-widest border-t border-amber-500/20">
-<img alt="Logo Image" class="h-8 w-auto" data-alt="lmk logo" src="lmk1.png"/>
+<img alt="Logo" class="h-8 w-auto" src="lmk1.png"/>
 <div class="flex flex-wrap justify-center gap-6">
 <a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Privacy Policy</a>
 <a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Terms of Service</a>
 <a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Contact</a>
 <a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Community Guidelines</a>
 </div>
-<div class="text-slate-500 text-xs mt-4">
-            © lorem ipsum.
-        </div>
+<div class="text-slate-500 text-xs mt-4">© lorem ipsum.</div>
 </footer>
 </body></html>
