@@ -146,15 +146,15 @@
 <!-- Grid: only the 3 blockquotes, nothing else inside -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter place-items-center">
   <!-- Embed 1 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 2 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 3 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
 </div>
@@ -215,26 +215,22 @@ console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
     console.log("Limited URLs:", limitedUrls); // Log the first 3 URLs
 
     // Inject URLs into the three blockquotes
-document.addEventListener('DOMContentLoaded', () => {
-  const blockquotes = document.querySelectorAll('blockquote.instagram-media');
-  blockquotes.forEach((bq, i) => {
-    if (!urls[i]) return;
-    bq.setAttribute('data-instgrm-permalink', urls[i]);
-    const link = bq.querySelector('a.ig-link');
-    if (link) link.setAttribute('href', urls[i]);
-  });
+    const blockquotes = document.querySelectorAll('blockquote.instagram-media');
+    blockquotes.forEach((bq, i) => {
+      if (!limitedUrls[i]) return;
+      bq.setAttribute('data-instgrm-permalink', limitedUrls[i]);
+      const link = bq.querySelector('a.ig-link');
+      if (link) link.setAttribute('href', limitedUrls[i]);
+    });
 
-  
-
-  // After injecting URLs, call Instagram's embed processor
-  setTimeout(() => {
-    if (window.instgrm && window.instgrm.Embeds) {
-      window.instgrm.Embeds.process();
-    } else {
-      console.error("Instagram Embed script not loaded or not ready.");
-    }
-  }, 500); // Delay to ensure Instagram's embed script is ready
-});
+// Ensure instgrm.Embeds.process() is called after a short delay
+setTimeout(() => {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  } else {
+    console.error("Instagram Embed script not loaded or not ready.");
+  }
+}, 500); // Delay of 500ms (adjust if needed)
   } catch (err) {
     console.error('Instagram feed: could not load URLs from Google Sheet.', err);
   }
