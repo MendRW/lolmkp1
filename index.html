@@ -195,17 +195,12 @@
 
       // Extract and clean Instagram URLs from the first column (skip empty rows and clean up)
       const urls = rows
-        .map((row, i) => {
-          console.log(`Processing row ${i}: ${row}`); // Log each row to see if it contains URLs
+        .map(row => {
           // Split each row by commas and grab the first column (Instagram URL)
           const url = row.split(',')[0]?.replace(/^"|"$/g, '').trim();
-          console.log(`Extracted URL from row ${i}:`, url); // Log the URL extraction process
           return url && url.startsWith('http') && url.includes('instagram.com') ? url : null;
         })
-        .filter((url, i) => {
-          console.log(`Filtered URL at index ${i}:`, url); // Log each filtered URL
-          return url; // Remove null values (invalid or empty rows)
-        });
+        .filter(url => url); // Remove null values (invalid or empty rows)
 
       console.log("Extracted URLs:", urls); // Log valid extracted URLs
 
@@ -217,46 +212,53 @@
 
       // Limit to the first 3 URLs
       const limitedUrls = urls.slice(0, 3);
-      console.log("Limited URLs:", limitedUrls); // Log the first 3 URLs
+      console.log("Limited URLs:", limitedUrls);
 
-      // Ensure the DOM is ready
-      document.addEventListener('DOMContentLoaded', () => {
+      // Retry logic to check and update blockquotes
+      let retryAttempts = 0;
+      const maxRetries = 5;
+
+      const checkAndUpdateBlockquotes = () => {
         const blockquotes = document.querySelectorAll('blockquote.instagram-media');
+        console.log("Found blockquotes:", blockquotes.length);
 
-        // Check if blockquotes exist
-        if (blockquotes.length === 0) {
-          console.warn("No blockquotes found in the DOM.");
-        }
+        // Check if there are blockquotes, if not, retry until maxRetries
+        if (blockquotes.length > 0 || retryAttempts >= maxRetries) {
+          blockquotes.forEach((bq, i) => {
+            const url = limitedUrls[i];
 
-        // Iterate over each blockquote element
-        blockquotes.forEach((bq, i) => {
-          const url = limitedUrls[i];
+            if (!url) {
+              console.warn(`No URL for blockquote ${i}, skipping this blockquote.`);
+            } else {
+              // Set the data-instgrm-permalink and href attributes for the blockquote
+              bq.setAttribute('data-instgrm-permalink', url);
+              const link = bq.querySelector('a.ig-link');
+              if (link) {
+                link.setAttribute('href', url);
+              }
 
-          // Log if there's no URL for the blockquote
-          if (!url) {
-            console.warn(`No URL for blockquote ${i}, skipping this blockquote.`);
-          } else {
-            // Set the data-instgrm-permalink and href attributes
-            bq.setAttribute('data-instgrm-permalink', url);
-            const link = bq.querySelector('a.ig-link');
-            if (link) {
-              link.setAttribute('href', url);
+              console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${url}`);
             }
+          });
 
-            // Log the update of the data-instgrm-permalink attribute
-            console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${url}`);
-          }
-        });
+          // After injecting URLs, process Instagram embeds
+          setTimeout(() => {
+            if (window.instgrm && window.instgrm.Embeds) {
+              window.instgrm.Embeds.process();
+            } else {
+              console.error("Instagram Embed script not loaded or not ready.");
+            }
+          }, 500);
 
-        // After injecting URLs, process Instagram embeds
-        setTimeout(() => {
-          if (window.instgrm && window.instgrm.Embeds) {
-            window.instgrm.Embeds.process();
-          } else {
-            console.error("Instagram Embed script not loaded or not ready.");
-          }
-        }, 500); // Delay to ensure the Instagram embed script is ready
-      });
+        } else {
+          retryAttempts++;
+          console.log("Retry attempt:", retryAttempts);
+          setTimeout(checkAndUpdateBlockquotes, 1000); // Retry after 1 second
+        }
+      };
+
+      // Initial call to check and update blockquotes
+      checkAndUpdateBlockquotes();
 
     } catch (err) {
       console.error('Instagram feed: could not load URLs from Google Sheet.', err);
