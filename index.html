@@ -215,22 +215,26 @@ console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
     console.log("Limited URLs:", limitedUrls); // Log the first 3 URLs
 
     // Inject URLs into the three blockquotes
-    const blockquotes = document.querySelectorAll('blockquote.instagram-media');
-    blockquotes.forEach((bq, i) => {
-      if (!limitedUrls[i]) return;
-      bq.setAttribute('data-instgrm-permalink', limitedUrls[i]);
-      const link = bq.querySelector('a.ig-link');
-      if (link) link.setAttribute('href', limitedUrls[i]);
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const blockquotes = document.querySelectorAll('blockquote.instagram-media');
+  blockquotes.forEach((bq, i) => {
+    if (!urls[i]) return;
+    bq.setAttribute('data-instgrm-permalink', urls[i]);
+    const link = bq.querySelector('a.ig-link');
+    if (link) link.setAttribute('href', urls[i]);
+  });
 
-// Ensure instgrm.Embeds.process() is called after a short delay
-setTimeout(() => {
-  if (window.instgrm && window.instgrm.Embeds) {
-    window.instgrm.Embeds.process();
-  } else {
-    console.error("Instagram Embed script not loaded or not ready.");
-  }
-}, 500); // Delay of 500ms (adjust if needed)
+  
+
+  // After injecting URLs, call Instagram's embed processor
+  setTimeout(() => {
+    if (window.instgrm && window.instgrm.Embeds) {
+      window.instgrm.Embeds.process();
+    } else {
+      console.error("Instagram Embed script not loaded or not ready.");
+    }
+  }, 500); // Delay to ensure Instagram's embed script is ready
+});
   } catch (err) {
     console.error('Instagram feed: could not load URLs from Google Sheet.', err);
   }
