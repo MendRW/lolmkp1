@@ -173,44 +173,68 @@
   // ─── YOUR GOOGLE SHEET CSV URL ───────────────────────────────────────────────
   const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
   // ─────────────────────────────────────────────────────────────────────────────
+console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
 
-  (async function () {
-    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv') {
-      console.warn('Instagram feed: no Google Sheet URL set.');
+(async function () {
+  if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+    console.warn('Instagram feed: no Google Sheet URL set.');
+    return;
+  }
+
+  try {
+    // Fetch the CSV from Google Sheets
+    const res = await fetch(IG_SHEET_CSV_URL);
+    if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
+
+    const csv = await res.text();
+    console.log("CSV Data:", csv); // Log raw CSV data for debugging
+
+    // Split the CSV into rows
+    const rows = csv.split('\n');
+    console.log("CSV Rows:", rows); // Log rows array for debugging
+
+    // Extract and clean Instagram URLs from the first column (skip empty rows and clean up)
+    const urls = rows
+      .map(row => {
+        // Split each row by commas and grab the first column (Instagram URL)
+        const url = row.split(',')[0]?.replace(/^"|"$/g, '').trim();
+        return url && url.startsWith('http') && url.includes('instagram.com') ? url : null;
+      })
+      .filter(url => url); // Remove null values (invalid or empty rows)
+
+    console.log("Extracted URLs:", urls); // Log valid extracted URLs
+
+    // If there are no valid URLs, exit early
+    if (urls.length === 0) {
+      console.warn('Instagram feed: no valid Instagram URLs found.');
       return;
     }
 
-    try {
-      const res = await fetch(IG_SHEET_CSV_URL);
-      if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
+    // Limit to the first 3 URLs
+    const limitedUrls = urls.slice(0, 3);
+    console.log("Limited URLs:", limitedUrls); // Log the first 3 URLs
 
-      const csv = await res.text();
+    // Inject URLs into the three blockquotes
+    const blockquotes = document.querySelectorAll('blockquote.instagram-media');
+    blockquotes.forEach((bq, i) => {
+      if (!limitedUrls[i]) return;
+      bq.setAttribute('data-instgrm-permalink', limitedUrls[i]);
+      const link = bq.querySelector('a.ig-link');
+      if (link) link.setAttribute('href', limitedUrls[i]);
+    });
 
-      // Parse column A, skip header row if present
-      const urls = csv
-        .split('\n')
-        .map(row => row.split(',')[0].replace(/^"|"$/g, '').trim())
-        .filter(val => val.startsWith('http') && val.includes('instagram.com'))
-        .slice(0, 3);
-
-      // Inject URLs into the three blockquotes
-      const blockquotes = document.querySelectorAll('blockquote.instagram-media');
-      blockquotes.forEach((bq, i) => {
-        if (!urls[i]) return;
-        bq.setAttribute('data-instgrm-permalink', urls[i]);
-        const link = bq.querySelector('a.ig-link');
-        if (link) link.setAttribute('href', urls[i]);
-      });
-
-      // Re-run Instagram's embed processor with the updated URLs
-      if (window.instgrm && window.instgrm.Embeds) {
-        window.instgrm.Embeds.process();
-      }
-
-    } catch (err) {
-      console.error('Instagram feed: could not load URLs from Google Sheet.', err);
-    }
-  })();
+// Ensure instgrm.Embeds.process() is called after a short delay
+setTimeout(() => {
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  } else {
+    console.error("Instagram Embed script not loaded or not ready.");
+  }
+}, 500); // Delay of 500ms (adjust if needed)
+  } catch (err) {
+    console.error('Instagram feed: could not load URLs from Google Sheet.', err);
+  }
+})();
 </script>
 
 </section>
