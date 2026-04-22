@@ -171,11 +171,11 @@
 
 <script>
   // ─── YOUR GOOGLE SHEET CSV URL ───────────────────────────────────────────────
-  const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?gid=0&single=true&output=csv';
+  const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
   // ─────────────────────────────────────────────────────────────────────────────
 
   (async function () {
-    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv') {
       console.warn('Instagram feed: no Google Sheet URL set.');
       return;
     }
