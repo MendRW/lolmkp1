@@ -169,8 +169,6 @@
 <!-- Instagram embed.js -->
 <script async src="//www.instagram.com/embed.js"></script>
 
-<script async src="//www.instagram.com/embed.js"></script>
-
 <script>
   // ─── YOUR GOOGLE SHEET CSV URL ───────────────────────────────────────────────
   const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
@@ -197,12 +195,17 @@
 
       // Extract and clean Instagram URLs from the first column (skip empty rows and clean up)
       const urls = rows
-        .map(row => {
+        .map((row, i) => {
+          console.log(`Processing row ${i}: ${row}`); // Log each row to see if it contains URLs
           // Split each row by commas and grab the first column (Instagram URL)
           const url = row.split(',')[0]?.replace(/^"|"$/g, '').trim();
+          console.log(`Extracted URL from row ${i}:`, url); // Log the URL extraction process
           return url && url.startsWith('http') && url.includes('instagram.com') ? url : null;
         })
-        .filter(url => url); // Remove null values (invalid or empty rows)
+        .filter((url, i) => {
+          console.log(`Filtered URL at index ${i}:`, url); // Log each filtered URL
+          return url; // Remove null values (invalid or empty rows)
+        });
 
       console.log("Extracted URLs:", urls); // Log valid extracted URLs
 
