@@ -146,15 +146,15 @@
 <!-- Grid: only the 3 blockquotes, nothing else inside -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter place-items-center">
   <!-- Embed 1 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 2 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 3 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
     <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
 </div>
@@ -169,6 +169,8 @@
 <!-- Instagram embed.js -->
 <script async src="//www.instagram.com/embed.js"></script>
 
+<script async src="//www.instagram.com/embed.js"></script>
+
 <script>
   // ─── YOUR GOOGLE SHEET CSV URL ───────────────────────────────────────────────
   const IG_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
@@ -176,12 +178,12 @@
   console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
 
   document.addEventListener('DOMContentLoaded', async function () {
-    if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
-      console.warn('Instagram feed: no Google Sheet URL set.');
-      return;
-    }
-
     try {
+      if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+        console.warn('Instagram feed: no Google Sheet URL set.');
+        return;
+      }
+
       // Fetch the CSV from Google Sheets
       const res = await fetch(IG_SHEET_CSV_URL);
       if (!res.ok) throw new Error('Sheet fetch failed: ' + res.status);
@@ -196,7 +198,6 @@
       // Extract and clean Instagram URLs from the first column (skip empty rows and clean up)
       const urls = rows
         .map(row => {
-          // Split each row by commas and grab the first column (Instagram URL)
           const url = row.split(',')[0]?.replace(/^"|"$/g, '').trim();
           return url && url.startsWith('http') && url.includes('instagram.com') ? url : null;
         })
@@ -212,53 +213,69 @@
 
       // Limit to the first 3 URLs
       const limitedUrls = urls.slice(0, 3);
-      console.log("Limited URLs:", limitedUrls);
+      console.log("Limited URLs:", limitedUrls); // Log limited URLs for debugging
 
-      // Retry logic to check and update blockquotes
-      let retryAttempts = 0;
-      const maxRetries = 5;
+      // --- Set up MutationObserver immediately ---
+      const observer = new MutationObserver(() => {
+        let blockquotes = document.querySelectorAll('blockquote.instagram-media');
+        console.log("Found blockquotes:", blockquotes);
 
-      const checkAndUpdateBlockquotes = () => {
-        const blockquotes = document.querySelectorAll('blockquote.instagram-media');
-        console.log("Found blockquotes:", blockquotes.length);
+        if (blockquotes.length > 0) {
+          console.log("Found blockquotes after mutation:", blockquotes);
+          observer.disconnect(); // Stop observing after finding blockquotes
 
-        // Check if there are blockquotes, if not, retry until maxRetries
-        if (blockquotes.length > 0 || retryAttempts >= maxRetries) {
           blockquotes.forEach((bq, i) => {
-            const url = limitedUrls[i];
-
-            if (!url) {
-              console.warn(`No URL for blockquote ${i}, skipping this blockquote.`);
-            } else {
-              // Set the data-instgrm-permalink and href attributes for the blockquote
-              bq.setAttribute('data-instgrm-permalink', url);
+            if (limitedUrls[i]) {
+              bq.setAttribute('data-instgrm-permalink', limitedUrls[i]);
               const link = bq.querySelector('a.ig-link');
               if (link) {
-                link.setAttribute('href', url);
+                link.setAttribute('href', limitedUrls[i]);
               }
-
-              console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${url}`);
+              console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${limitedUrls[i]}`);
             }
           });
 
-          // After injecting URLs, process Instagram embeds
+          // Trigger Instagram embed processing
           setTimeout(() => {
             if (window.instgrm && window.instgrm.Embeds) {
               window.instgrm.Embeds.process();
+              console.log("Instagram embeds processed.");
             } else {
               console.error("Instagram Embed script not loaded or not ready.");
             }
-          }, 500);
-
-        } else {
-          retryAttempts++;
-          console.log("Retry attempt:", retryAttempts);
-          setTimeout(checkAndUpdateBlockquotes, 1000); // Retry after 1 second
+          }, 1000); // Give the embed script time to process
         }
-      };
+      });
 
-      // Initial call to check and update blockquotes
-      checkAndUpdateBlockquotes();
+      // Start observing the DOM for changes (look for child elements added to the body)
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Retry with a delay to ensure the blockquotes are available in the DOM
+      setTimeout(() => {
+        let blockquotes = document.querySelectorAll('blockquote.instagram-media');
+        console.log("Initial found blockquotes (after delay):", blockquotes);
+        if (blockquotes.length > 0) {
+          blockquotes.forEach((bq, i) => {
+            if (limitedUrls[i]) {
+              bq.setAttribute('data-instgrm-permalink', limitedUrls[i]);
+              const link = bq.querySelector('a.ig-link');
+              if (link) {
+                link.setAttribute('href', limitedUrls[i]);
+              }
+              console.log(`Updated blockquote ${i} with data-instgrm-permalink: ${limitedUrls[i]}`);
+            }
+          });
+          // Trigger Instagram embed processing
+          setTimeout(() => {
+            if (window.instgrm && window.instgrm.Embeds) {
+              window.instgrm.Embeds.process();
+              console.log("Instagram embeds processed.");
+            } else {
+              console.error("Instagram Embed script not loaded or not ready.");
+            }
+          }, 1000); // Ensure embed processing
+        }
+      }, 3000); // Delay the retry for 3 seconds after page load
 
     } catch (err) {
       console.error('Instagram feed: could not load URLs from Google Sheet.', err);
