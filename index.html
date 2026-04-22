@@ -144,19 +144,18 @@
 </div>
 
 <!-- Grid: only the 3 blockquotes, nothing else inside -->
-<!-- Grid: only the 3 blockquotes, nothing else inside -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter place-items-center">
   <!-- Embed 1 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 2 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
   <!-- Embed 3 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
   </blockquote>
 </div>
 
@@ -167,7 +166,7 @@
   </a>
 </div>
 
-<!-- Instagram embed.js -->
+<!-- Instagram Embed.js -->
 <script>
   // Your Google Sheet CSV URL
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
@@ -179,11 +178,11 @@
       const response = await fetch(CSV_URL);
       const csvText = await response.text();
 
-      // Parse the CSV data and extract Instagram URLs from the first column
+      // Parse the CSV
       const rows = csvText.split('\n');
       const urls = rows
-        .map(row => row.split(',')[0].trim())  // Extract Instagram URLs (first column)
-        .filter(url => url && url.startsWith('https://www.instagram.com/p/'));  // Filter out non-Instagram URLs
+        .map(row => row.split(',')[0].trim()) // Extract Instagram URLs from the first column
+        .filter(url => url && url.startsWith('https://www.instagram.com/p/')); // Ensure the URL is valid
 
       console.log('Extracted URLs:', urls);
 
@@ -209,17 +208,20 @@
           if (link) {
             link.setAttribute('href', limitedUrls[index]);
           }
-
           console.log(`Updated embed ${index + 1} with URL: ${limitedUrls[index]}`);
         }
       });
 
-      // Trigger Instagram embed processing (if needed)
-      if (window.instgrm && window.instgrm.Embeds) {
-        window.instgrm.Embeds.process();
-      } else {
-        console.error('Instagram embed script not loaded.');
-      }
+      // Wait for the Instagram embed script to fully load and then process the embeds
+      const embedScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+      embedScript.onload = function() {
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        } else {
+          console.error('Instagram embed script failed to load.');
+        }
+      };
+      
     } catch (error) {
       console.error('Error updating Instagram embeds:', error);
     }
