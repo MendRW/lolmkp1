@@ -3,10 +3,10 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>LMK - League of Legends Meetup Korea</title>
+<title>LMK Hextech Social Landing Page</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Space+Grotesk:wght@500;600;700;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -14,53 +14,53 @@
             theme: {
                 extend: {
                     "colors": {
-                        "secondary": "#f0bf5c",
-                        "tertiary-fixed": "#c9e6ff",
-                        "on-surface-variant": "#bacac6",
-                        "secondary-fixed": "#ffdea4",
-                        "primary-fixed": "#61f9e9",
-                        "on-tertiary": "#00344d",
-                        "error": "#ffb4ab",
-                        "surface-bright": "#2f3a45",
-                        "surface-tint": "#3bdccd",
-                        "surface-container": "#15212a",
-                        "on-tertiary-container": "#004a6c",
-                        "inverse-primary": "#006a62",
-                        "outline": "#859491",
-                        "tertiary-container": "#7abae7",
-                        "on-primary-fixed-variant": "#005049",
-                        "background": "#08151e",
-                        "on-error-container": "#ffdad6",
-                        "on-secondary-container": "#ffe9c6",
-                        "on-primary-fixed": "#00201d",
-                        "secondary-container": "#8a6400",
-                        "on-background": "#d7e4f1",
-                        "on-surface": "#d7e4f1",
-                        "surface-dim": "#08151e",
-                        "surface-variant": "#2a3640",
-                        "on-secondary-fixed": "#261900",
-                        "surface-container-high": "#1f2b35",
-                        "primary-container": "#0ac8b9",
-                        "surface-container-lowest": "#040f18",
-                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#8ecefb",
+                        "on-secondary": "#412d00",
                         "surface": "#08151e",
                         "on-error": "#690005",
-                        "on-secondary": "#412d00",
-                        "tertiary-fixed-dim": "#8ecefb",
+                        "surface-container-lowest": "#040f18",
+                        "primary-container": "#0ac8b9",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#1f2b35",
+                        "surface-variant": "#2a3640",
+                        "surface-dim": "#08151e",
+                        "on-secondary-fixed": "#261900",
+                        "on-tertiary-fixed-variant": "#004c6e",
+                        "tertiary": "#9cd5ff",
+                        "surface-container-highest": "#2a3640",
+                        "on-primary": "#003732",
+                        "primary": "#47e4d5",
                         "secondary-fixed-dim": "#f0bf5c",
                         "on-tertiary-fixed": "#001e2f",
-                        "primary": "#47e4d5",
-                        "on-primary": "#003732",
-                        "surface-container-highest": "#2a3640",
-                        "tertiary": "#9cd5ff",
-                        "on-tertiary-fixed-variant": "#004c6e",
-                        "on-primary-container": "#004e48",
-                        "primary-fixed-dim": "#3bdccd",
-                        "inverse-surface": "#d7e4f1",
                         "inverse-on-surface": "#26323c",
-                        "outline-variant": "#3c4a47",
+                        "inverse-surface": "#d7e4f1",
+                        "primary-fixed-dim": "#3bdccd",
+                        "on-primary-container": "#004e48",
+                        "on-secondary-fixed-variant": "#5d4200",
                         "surface-container-low": "#111d26",
-                        "on-secondary-fixed-variant": "#5d4200"
+                        "outline-variant": "#3c4a47",
+                        "surface-bright": "#2f3a45",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#61f9e9",
+                        "on-tertiary": "#00344d",
+                        "secondary-fixed": "#ffdea4",
+                        "tertiary-fixed": "#c9e6ff",
+                        "secondary": "#f0bf5c",
+                        "on-surface-variant": "#bacac6",
+                        "outline": "#859491",
+                        "inverse-primary": "#006a62",
+                        "on-tertiary-container": "#004a6c",
+                        "surface-container": "#15212a",
+                        "surface-tint": "#3bdccd",
+                        "on-secondary-container": "#ffe9c6",
+                        "on-error-container": "#ffdad6",
+                        "background": "#08151e",
+                        "on-primary-fixed-variant": "#005049",
+                        "tertiary-container": "#7abae7",
+                        "on-surface": "#d7e4f1",
+                        "on-background": "#d7e4f1",
+                        "secondary-container": "#8a6400",
+                        "on-primary-fixed": "#00201d"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.125rem",
@@ -70,215 +70,189 @@
                     },
                     "spacing": {
                         "unit": "4px",
-                        "gutter": "24px",
                         "margin": "40px",
-                        "container-max": "1280px"
+                        "container-max": "1280px",
+                        "gutter": "24px"
                     },
                     "fontFamily": {
-                        "headline-md": ["Space Grotesk"],
-                        "label-caps": ["Space Grotesk"],
                         "display-xl": ["Space Grotesk"],
-                        "headline-lg": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-md": ["Manrope"],
                         "body-lg": ["Manrope"],
-                        "body-md": ["Manrope"]
+                        "headline-lg": ["Space Grotesk"]
                     },
                     "fontSize": {
-                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
                         "display-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
                         "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
                     }
                 }
             }
         }
     </script>
-<style>
-        .hex-border {
-            border: 1px solid rgba(71, 228, 213, 0.1);
-            position: relative;
-        }
-        .hex-border::before, .hex-border::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-top: 1px solid rgba(71, 228, 213, 0.5);
-        }
-        .hex-border::before { top: 0; left: 0; border-left: 1px solid rgba(71, 228, 213, 0.5); }
-        .hex-border::after { top: 0; right: 0; border-right: 1px solid rgba(71, 228, 213, 0.5); }
-        
-        .hex-border-bottom::before, .hex-border-bottom::after {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-bottom: 1px solid rgba(71, 228, 213, 0.5);
-            bottom: 0;
-        }
-        .hex-border-bottom::before { left: 0; border-left: 1px solid rgba(71, 228, 213, 0.5); }
-        .hex-border-bottom::after { right: 0; border-right: 1px solid rgba(71, 228, 213, 0.5); }
-
-        .glass-panel {
-            background: rgba(8, 21, 30, 0.7);
-            backdrop-filter: blur(12px);
-            box-shadow: inset 1px 1px 0px 0px rgba(71, 228, 213, 0.1), 0 0 30px rgba(10, 200, 185, 0.05);
-        }
-        .glow-teal {
-            box-shadow: 0 0 20px rgba(71, 228, 213, 0.4);
-        }
-        .text-glow {
-            text-shadow: 0 0 10px rgba(71, 228, 213, 0.5);
-        }
-    </style>
 </head>
-<body class="bg-background text-on-background antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
 <!-- TopNavBar -->
-<nav class="bg-slate-950/80 backdrop-blur-xl font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold fixed top-0 w-full z-50 border-b border-teal-500/20 shadow-[0_0_30px_rgba(10,200,185,0.15)] flex justify-between items-center px-8 h-20">
-<div class="text-2xl font-black text-teal-400 italic tracking-tighter">LMK</div>
-<div class="hidden md:flex space-x-8">
-<a class="text-slate-300 hover:text-teal-300 hover:glow-teal transition-all duration-300 active:scale-95 duration-150" href="#join">Join</a>
-<a class="text-slate-300 hover:text-teal-300 hover:glow-teal transition-all duration-300 active:scale-95 duration-150" href="#feed">Feed</a>
-<a class="text-slate-300 hover:text-teal-300 hover:glow-teal transition-all duration-300 active:scale-95 duration-150" href="#about">About Us</a>
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 bg-slate-950/80 backdrop-blur-md font-['Space_Grotesk'] tracking-tight border-b border-teal-500/20 shadow-[0_0_20px_rgba(10,200,185,0.1)] z-50">
+<div class="flex items-center gap-4">
+<img alt="Logo Image" class="h-8 w-auto" data-alt="High-tech glowing teal minimalist logo for a gaming social network on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpjO84rqP6EM04xCkSTy0C17Zb_Wm84-yq1-9ZSCXiiCt5u8fsyBrr-O1i6K9cxKf52tjI_niNZOV3tmU11RZ5z-ZVF4tuxIplJIZEy8f3mY5NCtXoeS_wAUDnAXqUJx4d4hTtRaHbqlF5TH1I1cLDU4c-FlkDZD7NJyFiZ4mF31-jqUs0ZkBvQv1AydwwWqvspYXz7u8vsjQqSlQCw9F3YhKKMNeQBCYPslxjIoxbqHVGJC5kegdLUbEKOdlbvC_4O5GWLF_jZc0"/>
 </div>
-<div class="flex items-center space-x-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-400 hover:text-teal-300 transition-colors font-headline-md text-headline-md text-sm" href="#">Join</a>
+<a class="text-slate-400 hover:text-teal-300 transition-colors font-headline-md text-headline-md text-sm" href="#">Feed</a>
+<a class="text-slate-400 hover:text-teal-300 transition-colors font-headline-md text-headline-md text-sm" href="#">About Us</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary text-2xl">menu</span>
 </div>
 </nav>
-<main class="pt-20">
+<!-- Main Content -->
+<main class="flex-grow mt-24">
 <!-- Hero Section -->
-<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden">
+<section class="relative w-full min-h-[716px] flex items-center justify-center overflow-hidden px-6 py-20">
 <div class="absolute inset-0 z-0">
-<img alt="Cinematic dark blue and teal neon gaming arena with glowing lights and energetic atmosphere" class="w-full h-full object-cover opacity-30" data-alt="Cinematic dark blue and teal neon gaming arena with glowing lights and energetic atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFd6HjgLMPRZm8cHKjAxKhVnLX3y5R5O5GJxvU6MpN6qgxEockC1fcLZgvRy2UtmmIRk7iOi2wq6-1q_AjZPQz3lIoJ19IJRZj1s5M2nwikf6ouRIuqUQrp7iE_trmuX9p9HHSF6W5qNX1Of8QDT80gFkWwCB7c5kXDl_G3-LHJ835JOjT0ty4cesNDnDt4PmD3Ou83O5xKpSTPMKFsShULZXloKAFySXk2zqIzoIohIQTb2mipEHTG_3FfgheSUuIp62hK2bFeQY"/>
-<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background"></div>
+<img alt="Hero Background" class="w-full h-full object-cover opacity-30" data-alt="Abstract dark hexagonal pattern with glowing teal and gold accents, futuristic gaming atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiiqHfq5A7qNowgRRxRjjx0WKSiP55BxqaOZBJoJffOFv8yQHGjsZdyjAVuupfZZ5TAh8SYMukT1OYTsq_yD7qsrvVNo85nnSgVY1_Ax6E4WpgO-wrj6nslTp7-L4x6iVWn91HfyPgNfsq5mWmNSHMDxKMK9mvfSzRAorYKXTVnPTl5URGKgRZL8WXfl7fPCfiXgIfxsCX_AP6LQFGlqEsFLVY1NDP3cpToePRU38r3_MAl21V50940V9cpGBlRyQI2gkNsRbm_Ew"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
 </div>
-<div class="relative z-10 text-center max-w-container-max mx-auto px-gutter w-full">
-<div class="inline-block mb-6 px-4 py-1 border border-primary/30 rounded-full bg-surface-container/50 backdrop-blur-sm">
-<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Lorem Ipsum Dolor</span>
-</div>
-<h1 class="font-display-xl text-display-xl text-white mb-6 uppercase tracking-tighter leading-tight">
-                    LMK: Level Up Your <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary text-glow">Social Game</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<div class="relative z-10 max-w-container-max mx-auto text-center flex flex-col items-center gap-8">
+<h1 class="font-display-xl text-display-xl text-primary drop-shadow-[0_0_15px_rgba(71,228,213,0.5)]">
+                    Elevate Your Play.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
                 </p>
-</div>
-</section>
-<!-- Join Section -->
-<section class="py-20 relative" id="join">
-<div class="max-w-container-max mx-auto px-gutter relative z-10">
-<div class="glass-panel hex-border hex-border-bottom rounded-xl p-12 lg:p-16 text-center">
-<h2 class="font-headline-lg text-headline-lg text-white mb-4">Secure Your Spot</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-xl mx-auto">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-<button class="w-full sm:w-auto bg-gradient-to-r from-[#5865F2] to-[#4752C4] text-white px-8 py-4 rounded-lg font-headline-md text-headline-md flex items-center justify-center gap-3 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)] transition-all active:scale-95">
-<span class="material-symbols-outlined">forum</span>
-                            Join our Discord
-                        </button>
-<button class="w-full sm:w-auto border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-headline-md text-headline-md flex items-center justify-center gap-3 hover:bg-secondary/10 transition-all active:scale-95">
-<span class="material-symbols-outlined">chat</span>
-                            Connect on KakaoChat
-                        </button>
-</div>
+<div class="flex gap-6 mt-8">
+<a class="bg-gradient-to-r from-secondary to-[#8a6400] text-white px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:shadow-[0_0_20px_rgba(240,191,92,0.4)] transition-all" href="#join">
+                        ENTER THE ARENA
+                    </a>
+<a class="border border-primary text-primary px-8 py-3 rounded-DEFAULT font-label-caps text-label-caps tracking-widest hover:bg-primary/10 transition-all shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.2)]" href="#about">
+                        DISCOVER MORE
+                    </a>
 </div>
 </div>
 </section>
-<!-- Feed Section -->
-<section class="py-20 bg-surface-container-lowest" id="feed">
-<div class="max-w-container-max mx-auto px-gutter">
-<div class="flex justify-between items-end mb-10">
+<!-- Recent Events Section (Bento Grid) -->
+<section class="py-20 px-6 max-w-container-max mx-auto" id="feed">
+<div class="flex justify-between items-end mb-12">
 <div>
-<h2 class="font-headline-lg text-headline-lg text-white">Recent Events</h2>
-<p class="font-body-md text-body-md text-primary mt-2">Duis aute irure dolor in reprehenderit in voluptate</p>
+<h2 class="font-headline-lg text-headline-lg text-inverse-surface mb-2">Recent Highlights</h2>
+<div class="h-1 w-16 bg-secondary"></div>
 </div>
-<a class="text-secondary font-label-caps text-label-caps hover:text-white transition-colors uppercase tracking-widest flex items-center gap-2" href="https://www.instagram.com" target="_blank">
-                        View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+<a class="hidden md:flex items-center gap-2 text-primary hover:text-primary-fixed transition-colors font-label-caps text-label-caps" href="https://instagram.com" target="_blank">
+                    VIEW ALL ON INSTAGRAM <span class="material-symbols-outlined text-sm">open_in_new</span>
 </a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Card 1 -->
-<div class="glass-panel hex-border rounded-lg overflow-hidden group cursor-pointer">
-<div class="h-48 overflow-hidden relative">
-<img alt="Group of gamers at a dark PC cafe with glowing screens and focused expressions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Group of gamers at a dark PC cafe with glowing screens and focused expressions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbVVBmsjTpMsG-Pbg5JxnOocfVllRG8ii0ofK1BxqtaBippSEl6gCjAzL_sgPCCNaVw1PACdHJTrQudLsO_ZG901c-4v2S0z3r48-vFwUXWi9vKZnOw8QbyGXjl7emM5cJ0JgHNa5Dxov7T9tQ8x3UJZNwwAZunNiak_k8x8CnkDrj6dA7lLmpWtFJQa1-imh82dvPYGC0VMONqjJk1QcYtRu3hUeScj20GMEyLzcjZ0G9DKKvK0ezT-Y12SaefIm0rG-WmElC4Z4"/>
-<div class="absolute top-4 left-4 bg-secondary text-on-secondary font-label-caps text-label-caps px-2 py-1 rounded">LOREM</div>
-</div>
-<div class="p-6">
-<div class="text-primary font-label-caps text-label-caps mb-2">LOREM IPSUM</div>
-<h3 class="font-headline-md text-headline-md text-white mb-2">Seoul LAN Party Finals</h3>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Large Featured Card -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-lg border border-primary/10 bg-surface-container/40 backdrop-blur-md shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)]">
+<img alt="Event 1" class="w-full h-full object-cover min-h-[400px] transition-transform duration-500 group-hover:scale-105 opacity-80 mix-blend-luminosity group-hover:mix-blend-normal" data-alt="High energy esports tournament stage with glowing teal and gold lights, crowd cheering in silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJAIX_a8HY1Y5L8kuC6XV2c74mijwETC_74SrdAA-TPhNYKx-RPNxJncE9soYKcXGcTnvYHNkp4cPeQa4geDsyMlwf9Mu1_8tKHIhkoGYn_lTm35Z161eUIEP3XI8UfibugAueF8k9HITJMZqP8oIVamKDrDVSSMI-cfsvBqgIhwym44awwyP90zdezWHwjtfSmQTyXGJmIm-DY2PMm5AboFQO9-1tVm68HHeQ9ePTDsEjl2vrBFQFi-XWoim1K54jUkMTMWhZFJo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="inline-block bg-secondary text-on-secondary px-3 py-1 rounded-sm font-label-caps text-label-caps mb-3">CHAMPIONSHIP</span>
+<h3 class="font-headline-md text-headline-md text-inverse-surface">Seoul Invitational 2024</h3>
 </div>
 </div>
-<!-- Card 2 -->
-<div class="glass-panel hex-border rounded-lg overflow-hidden group cursor-pointer lg:col-span-2">
-<div class="h-48 lg:h-64 overflow-hidden relative">
-<img alt="Close up of a backlit mechanical gaming keyboard glowing with teal and purple lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a backlit mechanical gaming keyboard glowing with teal and purple lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfzQjiPbrXoS2EMT6hUhZNYiUCVCKE5yPB2bBKYfD9B8OhAzu1hv8YNWcT8dea30VUdfSPpwDcTwAVdzWfnJnaKHFUHXzEIZzsNylE-rFdqe3TsXuLd_p0nnZZpUTjE1-2AewHws0qXQx6TpD8hPT2gWPTlng8-zHjm_YjNGaVqi3Cvy_z40ZztUgoiVFSexyFAOchtindu6DnTEE-cYuWiE2BuEgetXjBcn8hO2CuJHlURHVztg6c4Nga8V7agyNSSpmwAcIThJo"/>
-<div class="absolute top-4 left-4 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-1 rounded">IPSUM</div>
-</div>
-<div class="p-6">
-<div class="text-primary font-label-caps text-label-caps mb-2">LOREM IPSUM</div>
-<h3 class="font-headline-md text-headline-md text-white mb-2">Surviving Solo Queue in KR Server</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+<!-- Small Card 1 -->
+<div class="relative group overflow-hidden rounded-lg border border-primary/10 bg-surface-container/40 backdrop-blur-md shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)] min-h-[250px]">
+<img alt="Event 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-70 mix-blend-luminosity group-hover:mix-blend-normal" data-alt="Close up of a professional gamer wearing headset, intense focus, blue and gold rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUCrkFYBz-ooM3sBaCGTgq34c6oexADAxEVdGg58ievHC4gOGG3-eCLZn7e-uTBBZKJXUGlsT4gRVCQZKI_kM-7gvnU1xm7Ccjsohzy0WFqIjXDNr0a0xeIAFregSmDbiO4YyryXPaeEa3ZYnJc3Fx8GduQhiCUy7-p6eyRWCXvtQQGP5-B9UqY29FXbczLGwPCccNPqIpCPTT3dKv7mJKNzgpKt-Dt6ObdBBwHcnXcqqIB3wfd5delOs6e_3uZgt9aaoO_ymXnKg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="inline-block bg-primary/20 text-primary border border-primary/50 px-2 py-1 rounded-sm font-label-caps text-label-caps text-[10px] mb-2">COMMUNITY</span>
+<h4 class="font-body-lg text-body-lg font-bold text-inverse-surface">Local Qualifiers</h4>
 </div>
 </div>
+<!-- Small Card 2 -->
+<div class="relative group overflow-hidden rounded-lg border border-primary/10 bg-surface-container/40 backdrop-blur-md shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)] min-h-[250px]">
+<img alt="Event 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-70 mix-blend-luminosity group-hover:mix-blend-normal" data-alt="Abstract neon glowing keyboard and mouse setup, futuristic hextech vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkW4-NbY7Ml2vjGk49H3OoS4vSEbcsum1uJN41tVXcSUW7sWFPFGZo0BLB-bRPcmIYMiuTwpuzzntMZayrmzSa7gp0L0CXo1Oq5DBOQ6iISn9D__cg59XGQoR4fAnn2KHsRABIBQ0fmFU4tSy8xagFCz8Lp_hxDKuBOejIMOfyK3rysWmgKknXdUvMLhWO4poCOOvqzV4ii2yIv2X0ukMJEVVC1HI4hc7BKv9u9Mr1PFuvMCVCcDpegWlzqzej-c6LiB3lSCeMkPM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full">
+<span class="inline-block bg-primary/20 text-primary border border-primary/50 px-2 py-1 rounded-sm font-label-caps text-label-caps text-[10px] mb-2">GEAR</span>
+<h4 class="font-body-lg text-body-lg font-bold text-inverse-surface">Hardware Showcase</h4>
 </div>
+</div>
+</div>
+<div class="mt-8 text-center md:hidden">
+<a class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-2 rounded-DEFAULT font-label-caps text-label-caps hover:bg-primary/10 transition-colors" href="https://instagram.com" target="_blank">
+                    VIEW ALL ON INSTAGRAM <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
 </div>
 </section>
 <!-- About Us Section -->
-<section class="py-24 relative overflow-hidden" id="about">
-<div class="absolute inset-0 z-0 opacity-10">
-<div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
-<div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary rounded-full blur-[120px]"></div>
-</div>
-<div class="max-w-container-max mx-auto px-gutter relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<section class="py-20 bg-surface-container-low relative overflow-hidden" id="about">
+<!-- Decorative Hextech Accents -->
+<div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-primary/20 opacity-50"></div>
+<div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-secondary/20 opacity-50"></div>
+<div class="max-w-container-max mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-12 relative z-10">
 <div>
-<h2 class="font-display-xl text-display-xl text-white mb-8">Our Origins</h2>
-<div class="glass-panel hex-border hex-border-bottom rounded-xl p-8 mb-8">
-<h3 class="font-headline-md text-headline-md text-secondary mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined">public</span>
-                                Bridging the Gap
-                            </h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">track_changes</span>
+                            Our Focus
+                        </h2>
+<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg shadow-[0_10px_30px_rgba(10,200,185,0.05)] shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)]">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.
                             </p>
 </div>
 </div>
-<div class="glass-panel hex-border rounded-xl p-8 lg:p-12 border-t-4 border-t-primary">
-<h2 class="font-headline-lg text-headline-lg text-white mb-8">Our Focus</h2>
-<ul class="space-y-6">
-<li class="flex items-start gap-4">
-<div class="bg-surface-container-high p-3 rounded-lg text-primary mt-1">
-<span class="material-symbols-outlined">sports_esports</span>
-</div>
 <div>
-<h4 class="font-headline-md text-headline-md text-white">Competitive Integrity</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-weight="fill">history_edu</span>
+                            Our Origins
+                        </h2>
+<div class="bg-surface-container/60 backdrop-blur-xl border border-primary/10 p-8 rounded-lg shadow-[0_10px_30px_rgba(10,200,185,0.05)] shadow-[inset_1px_1px_0_0_rgba(71,228,213,0.1)]">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis.
+                            </p>
 </div>
-</li>
-<li class="flex items-start gap-4">
-<div class="bg-surface-container-high p-3 rounded-lg text-secondary mt-1">
-<span class="material-symbols-outlined">groups</span>
 </div>
-<div>
-<h4 class="font-headline-md text-headline-md text-white">IRL Meetups</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
-</li>
-</ul>
+<div class="relative h-[600px] hidden lg:block">
+<div class="absolute inset-0 bg-tertiary-fixed-dim/10 rounded-xl blur-3xl"></div>
+<img alt="About Us" class="absolute inset-0 w-full h-full object-cover rounded-xl border border-primary/20 shadow-[0_0_40px_rgba(10,200,185,0.15)] mix-blend-luminosity" data-alt="High-end server room with glowing blue and teal lights, representing the digital foundation of the network" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPKONhWaL1ri_dWLDbTJK_D7H6EOGh32278ujrL0Y1MHtbEJRMUlwL4N5bmrcRbDvkQmBizBp_Ozx6Y7Cy_8P0S_J8u-SwnZejodMheVWT7Bn22H-8WewJMz7aleSTbAqr5Pxg-LIW0ref0ce46pQuIdUmHEr8tOtVW-_zC6eBekr1GSxIgjKRs0uKp6H_NJf-Zr43x9rUPpqSoaBaou0mQGJbqgf3rPonayWpv2GtgrCxBLmcJwtdFIaPnBh6KzIT9K8UE0PAEHw"/>
 </div>
+</div>
+</section>
+<!-- Join Section -->
+<section class="py-32 px-6 relative text-center" id="join">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-container/20 via-background to-background"></div>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto space-y-8">
+<h2 class="font-display-xl text-display-xl text-inverse-surface">Ready to Connect?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id tellus eget velit suscipit sollicitudin.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<a class="group relative flex items-center justify-center gap-3 bg-surface-container border border-primary/30 px-8 py-4 rounded-lg hover:border-primary hover:bg-primary/5 transition-all overflow-hidden" href="#">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary">forum</span>
+<span class="font-label-caps text-label-caps text-inverse-surface group-hover:text-primary transition-colors">JOIN DISCORD</span>
+</a>
+<a class="group relative flex items-center justify-center gap-3 bg-[#ffe812]/10 border border-[#ffe812]/30 px-8 py-4 rounded-lg hover:border-[#ffe812] hover:bg-[#ffe812]/20 transition-all overflow-hidden" href="#">
+<div class="absolute inset-0 bg-gradient-to-r from-[#ffe812]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-[#ffe812]">chat_bubble</span>
+<span class="font-label-caps text-label-caps text-inverse-surface group-hover:text-[#ffe812] transition-colors">JOIN KAKAOCHAT</span>
+</a>
 </div>
 </div>
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-slate-950 font-['Space_Grotesk'] text-xs tracking-widest font-medium w-full py-16 border-t border-teal-900/50 shadow-none flex flex-col items-center space-y-8 max-w-7xl mx-auto px-6 text-center">
-<div class="text-teal-400 font-bold text-2xl mb-4 italic tracking-tighter">LMK</div>
-<div class="flex space-x-6">
-<a class="text-slate-500 hover:text-yellow-500 transition-colors opacity-80 hover:opacity-100" href="#">Discord</a>
-<a class="text-slate-500 hover:text-yellow-500 transition-colors opacity-80 hover:opacity-100" href="#">KakaoChat</a>
-<a class="text-slate-500 hover:text-yellow-500 transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
-<a class="text-slate-500 hover:text-yellow-500 transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<footer class="w-full flex flex-col items-center gap-8 px-8 py-12 max-w-7xl mx-auto bg-slate-950 font-['Space_Grotesk'] text-sm uppercase tracking-widest border-t border-amber-500/20">
+<div class="text-amber-400 font-black text-xl">LMK</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Contact</a>
+<a class="text-slate-500 hover:text-amber-400 transition-colors" href="#">Community Guidelines</a>
 </div>
-<p class="text-slate-500 mt-8">© 2024 LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.</p>
+<div class="text-slate-500 text-xs mt-4">
+            © 2024 LMK Hextech Social. All rights reserved.
+        </div>
 </footer>
 </body></html>
