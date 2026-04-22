@@ -175,7 +175,7 @@
   // ─────────────────────────────────────────────────────────────────────────────
   console.log("Instagram CSV URL:", IG_SHEET_CSV_URL);
 
-  (async function () {
+  document.addEventListener('DOMContentLoaded', async function () {
     if (!IG_SHEET_CSV_URL || IG_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
       console.warn('Instagram feed: no Google Sheet URL set.');
       return;
@@ -263,7 +263,7 @@
     } catch (err) {
       console.error('Instagram feed: could not load URLs from Google Sheet.', err);
     }
-  })();
+  });
 </script>
 
 </section>
