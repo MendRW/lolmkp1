@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   <style>
+    .ig-grid-wrapper {
+      width: 100%;
+    }
     .ig-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -17,6 +20,17 @@
     .ig-grid .instagram-media {
       min-width: 0 !important;
       width: 100% !important;
+    }
+    @media (max-width: 768px) {
+      .ig-grid {
+        grid-template-columns: 1fr;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+      .ig-grid .instagram-media {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
     }
     .ig-grid-loading,
     .ig-grid-error {
