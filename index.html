@@ -7,6 +7,29 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <style>
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      place-items: start center;
+    }
+    .ig-grid .instagram-media {
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+    .ig-grid-loading,
+    .ig-grid-error {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #888;
+      padding: 2rem;
+      font-family: sans-serif;
+    }
+    .ig-grid-error {
+      color: #c00;
+    }
+  </style>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -143,22 +166,6 @@
 </a>
 </div>
 
-<!-- Grid: only the 3 blockquotes, nothing else inside -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter place-items-center">
-  <!-- Embed 1 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
-  </blockquote>
-  <!-- Embed 2 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
-  </blockquote>
-  <!-- Embed 3 -->
-  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DW8j7UAESwP/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
-    <div style="padding:16px;"><a class="ig-link" href="https://www.instagram.com/p/DW8j7UAESwP/" style="background:#FFFFFF;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank">View this post on Instagram</a></div>
-  </blockquote>
-</div>
-
 <!-- Mobile "view all" — outside the grid -->
 <div class="mt-8 text-center md:hidden">
   <a class="inline-flex items-center gap-2 border border-primary text-primary px-6 py-2 rounded-DEFAULT font-label-caps text-label-caps hover:bg-primary/10 transition-colors" href="https://www.instagram.com/lolmeetupkorea/" target="_blank">
@@ -167,72 +174,131 @@
 </div>
 
 <!-- Instagram Embed.js -->
-<script>
-  // Your Google Sheet CSV URL
-  const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv';
-
-  // Function to fetch and update Instagram embeds
-  async function updateInstagramEmbeds() {
-    try {
-      // Fetch the CSV data from Google Sheets
-      const response = await fetch(CSV_URL);
-      const csvText = await response.text();
-
-      // Parse the CSV
-      const rows = csvText.split('\n');
-      const urls = rows
-        .map(row => row.split(',')[0].trim()) // Extract Instagram URLs from the first column
-        .filter(url => url && url.startsWith('https://www.instagram.com/p/')); // Ensure the URL is valid
-
-      console.log('Extracted URLs:', urls);
-
-      if (urls.length === 0) {
-        console.error('No valid Instagram URLs found.');
+  <div
+    id="ig-grid"
+    class="ig-grid"
+    data-sheet-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vQN68c6gB14nJeuXZ0fWmqEfc4XE2svc7NlhQICWRufG7zD1cIKQdqmGyhvzo2vXW2Gh1r7H7-rSiH8/pub?output=csv"
+    data-url-column="0"
+  >
+    <!-- STEP 2 (optional): Change data-url-column to the column index (0-based)
+         that contains the Instagram URLs in your sheet.
+         e.g. if URLs are in column B, use data-url-column="1" -->
+    <p class="ig-grid-loading">Loading…</p>
+  </div>
+ 
+  <!-- Instagram embed script — keep this -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+ 
+  <script>
+    (async function () {
+      const grid = document.getElementById('ig-grid');
+      const sheetUrl = grid.dataset.sheetUrl;
+      const urlColumn = parseInt(grid.dataset.urlColumn ?? '0', 10);
+ 
+      // ── helpers ──────────────────────────────────────────────────────────
+ 
+      function parseCSV(text) {
+        // Handles quoted fields and strips empty rows
+        return text
+          .trim()
+          .split(/\r?\n/)
+          .map(row => {
+            const fields = [];
+            let field = '';
+            let inQuotes = false;
+            for (let i = 0; i < row.length; i++) {
+              const ch = row[i];
+              if (ch === '"') {
+                inQuotes = !inQuotes;
+              } else if (ch === ',' && !inQuotes) {
+                fields.push(field.trim());
+                field = '';
+              } else {
+                field += ch;
+              }
+            }
+            fields.push(field.trim());
+            return fields;
+          })
+          .filter(row => row.some(f => f.length > 0));
+      }
+ 
+      function isInstagramURL(url) {
+        return /https?:\/\/(www\.)?instagram\.com\/p\/[^/?#]+\/?/.test(url);
+      }
+ 
+      function buildEmbed(url, index) {
+        const blockquote = document.createElement('blockquote');
+        blockquote.className = 'instagram-media';
+        blockquote.dataset.instgrmPermalink = url;
+        blockquote.dataset.instgrmVersion = '14';
+        blockquote.style.cssText =
+          'background:#FFF;border:0;border-radius:3px;' +
+          'box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);' +
+          'margin:1px;max-width:540px;min-width:326px;padding:0;' +
+          'width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);';
+ 
+        const inner = document.createElement('div');
+        inner.style.padding = '16px';
+ 
+        const link = document.createElement('a');
+        link.className = 'ig-link';
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.cssText =
+          'background:#FFFFFF;line-height:0;padding:0;' +
+          'text-align:center;text-decoration:none;width:100%;';
+        link.textContent = 'View this post on Instagram';
+ 
+        inner.appendChild(link);
+        blockquote.appendChild(inner);
+        return blockquote;
+      }
+ 
+      // ── main ─────────────────────────────────────────────────────────────
+ 
+      if (!sheetUrl || sheetUrl === 'SHEET_CSV_URL') {
+        grid.innerHTML =
+          '<p class="ig-grid-error">⚠ Set data-sheet-url on the #ig-grid element.</p>';
         return;
       }
-
-      // Limit to the first 3 URLs (to match the 3 blockquotes)
-      const limitedUrls = urls.slice(0, 3);
-
-      // Get the blockquote elements
-      const embeds = document.querySelectorAll('.instagram-media');
-
-      // Update the data-instgrm-permalink and href attributes for each blockquote
-      embeds.forEach((embed, index) => {
-        if (limitedUrls[index]) {
-          // Update the data-instgrm-permalink attribute
-          embed.setAttribute('data-instgrm-permalink', limitedUrls[index]);
-
-          // Update the href attribute inside the .ig-link anchor tag
-          const link = embed.querySelector('.ig-link');
-          if (link) {
-            link.setAttribute('href', limitedUrls[index]);
-          }
-          console.log(`Updated embed ${index + 1} with URL: ${limitedUrls[index]}`);
+ 
+      try {
+        const res = await fetch(sheetUrl);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+ 
+        const rows = parseCSV(text);
+ 
+        // Skip a header row if the first cell doesn't look like a URL
+        const startRow = isInstagramURL(rows[0]?.[urlColumn] ?? '') ? 0 : 1;
+        const urls = rows
+          .slice(startRow)
+          .map(row => row[urlColumn])
+          .filter(isInstagramURL);
+ 
+        if (urls.length === 0) {
+          grid.innerHTML =
+            '<p class="ig-grid-error">No Instagram URLs found in the sheet.</p>';
+          return;
         }
-      });
-
-      // Wait for the Instagram embed script to fully load and then process the embeds
-      const embedScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
-      embedScript.onload = function() {
-        if (window.instgrm && window.instgrm.Embeds) {
+ 
+        grid.innerHTML = '';
+        urls.forEach((url, i) => grid.appendChild(buildEmbed(url, i)));
+ 
+        // Re-process embeds after injecting them into the DOM
+        if (window.instgrm?.Embeds?.process) {
           window.instgrm.Embeds.process();
-        } else {
-          console.error('Instagram embed script failed to load.');
         }
-      };
-      
-    } catch (error) {
-      console.error('Error updating Instagram embeds:', error);
-    }
-  }
-
-  // Wait for the document to load and then update the embeds
-  document.addEventListener('DOMContentLoaded', updateInstagramEmbeds);
-</script>
-
-<!-- Instagram Embed Script -->
-<script async defer src="https://www.instagram.com/embed.js"></script>
+ 
+      } catch (err) {
+        console.error('Instagram grid error:', err);
+        grid.innerHTML =
+          `<p class="ig-grid-error">Failed to load sheet data: ${err.message}</p>`;
+      }
+    })();
+  </script>
 
 </section>
 
